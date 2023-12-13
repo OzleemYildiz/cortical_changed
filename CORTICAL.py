@@ -366,7 +366,6 @@ class CORTICAL():
         return MI_VAR, ch_input, ch_output
 
 if __name__ == '__main__':
-    breakpoint()
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--batch_size', help='Number of channel samples to train on at once', default=32)
@@ -377,7 +376,6 @@ if __name__ == '__main__':
     parser.add_argument('--channel', help='Type of channel: AWGN, UNIF, AICN, EXP, RAY, MIMO', default='AWGN')
     parser.add_argument('--power_constraint', help='Type of constraint: PP (peak power), AP (amplitude power), PPAP', default='PP')
 
-    breakpoint()
     args = parser.parse_args()
 
     test_size = int(args.test_size)
@@ -385,7 +383,6 @@ if __name__ == '__main__':
     alpha = float(args.alpha)
     channel = str(args.channel)
     power_constraint = str(args.power_constraint)
-    breakpoint()
     EbN0_dB = range(-14, 29) # SNR range
 
     latent_dim = 30 # z input dimension
@@ -397,7 +394,6 @@ if __name__ == '__main__':
 
     j = 0
     for EbN0 in EbN0_dB:
-        breakpoint()
         print("Current EbN0 is: %f" %EbN0)
         # Initialize CORTICAL
         cortical = CORTICAL(latent_dim, data_dim, alpha, channel, EbN0, power_constraint)
