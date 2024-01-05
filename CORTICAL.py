@@ -34,7 +34,7 @@ def my_peak_power(y_true, y_pred):
 def my_peak_power_ellipse(y_true, y_pred):
     # P = x^2+R*y^2
     R = 3
-    return K.maximum(y_pred[:,0]*y_pred[:,0]+R*y_pred[:,1]*y_pred[:,1]-3,0)
+    return K.maximum(y_pred[:,0]*y_pred[:,0]+R*y_pred[:,1]*y_pred[:,1]-1,0)
 
 def my_average_power(y_true, y_pred):
     return K.maximum(K.mean(K.sum(y_pred*y_pred,axis=-1,keepdims=True))-1,0)
