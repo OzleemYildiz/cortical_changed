@@ -15,4 +15,4 @@ module load python/intel/3.8.6
 module load openmpi/intel/4.0.5
 
 source /scratch/zy2043/cortical/bin/activate
-srun python /scratch/zy2043/cortical_changed/CORTICAL.py --dim=2 --channel=MIMO
+srun python /scratch/zy2043/cortical_changed/CORTICAL.py --dim=2 
