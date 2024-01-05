@@ -5,6 +5,10 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=2GB
 #SBATCH --time=01:00:00
+#SBATCH --mail-type=END
+#SBATCH --mail-user=zy2043@nyu.edu
+#SBATCH --output=cort.out
+#SBATCH --error=cort.err
 
 module purge
 module load python/intel/3.8.6
