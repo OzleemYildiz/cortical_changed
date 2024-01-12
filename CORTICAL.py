@@ -269,7 +269,7 @@ class CORTICAL():
 
                 if self.channel == 'AWGN' or 'MIMO':
                     ch_output = ch_input + eps * np.random.normal(0, 1, (batch_size, self.data_dim))
-                    ch_output = np.tanh(ch_output)
+                    ch_output = np.tanh(ch_output/2)
                 elif self.channel == 'UNIF':
                     delta = np.sqrt(12)*eps
                     ch_output = ch_input + np.random.uniform(-delta/2, delta/2, (batch_size, self.data_dim))
@@ -337,7 +337,7 @@ class CORTICAL():
         if self.channel == 'AWGN' or 'MIMO':
             ch_output = ch_input + eps * np.random.normal(0, 1, (test_size, self.data_dim))
             #Dene
-            ch_output = np.tanh(ch_output)
+            ch_output = np.tanh(ch_output/2)
         elif self.channel == 'UNIF':
             delta = np.sqrt(12)*eps
             ch_output = ch_input + np.random.uniform(-delta/2, delta/2, (test_size, self.data_dim))
