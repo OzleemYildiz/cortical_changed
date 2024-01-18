@@ -29,7 +29,7 @@ def my_binary_crossentropy(y_true, y_pred):
 
 def my_peak_power(y_true, y_pred):
     # P = A^2
-    return K.maximum(K.sum(y_pred*y_pred,axis=-1,keepdims=True)-100,0)
+    return K.maximum(K.sum(y_pred*y_pred,axis=-1,keepdims=True)-9,0)
 
 def my_peak_power_ellipse(y_true, y_pred):
     # P = x^2+R*y^2
