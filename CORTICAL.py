@@ -29,7 +29,7 @@ def my_binary_crossentropy(y_true, y_pred):
 
 def my_peak_power(y_true, y_pred):
     # P = A^2
-    return K.maximum(K.sum(y_pred*y_pred,axis=-1,keepdims=True)-10,0)
+    return K.maximum(K.sum(y_pred*y_pred,axis=-1,keepdims=True)-1,0)
 
 def my_peak_power_ellipse(y_true, y_pred):
     # P = x^2+R*y^2
@@ -269,7 +269,7 @@ class CORTICAL():
 
                 if self.channel == 'AWGN' or 'MIMO':
                     ch_output = ch_input + eps * np.random.normal(0, 1, (batch_size, self.data_dim))
-                    ch_output = np.tanh(ch_output/4)
+                    ch_output = np.tanh(ch_output/2)
                 elif self.channel == 'UNIF':
                     delta = np.sqrt(12)*eps
                     ch_output = ch_input + np.random.uniform(-delta/2, delta/2, (batch_size, self.data_dim))
@@ -337,7 +337,7 @@ class CORTICAL():
         if self.channel == 'AWGN' or 'MIMO':
             ch_output = ch_input + eps * np.random.normal(0, 1, (test_size, self.data_dim))
             #Dene
-            ch_output = np.tanh(ch_output/4)
+            ch_output = np.tanh(ch_output/2)
         elif self.channel == 'UNIF':
             delta = np.sqrt(12)*eps
             ch_output = ch_input + np.random.uniform(-delta/2, delta/2, (test_size, self.data_dim))
